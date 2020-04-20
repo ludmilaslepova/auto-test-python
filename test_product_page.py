@@ -13,5 +13,25 @@ def test_guest_can_go_to_login_page(browser, offer):
     page_prod.solve_quiz_and_get_code()
     page_prod.should_be_checked_in_cart()
 
+@pytest.mark.skip
+def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
+    page_prod = ProductPage(browser, link)
+    page_prod.open()
+    page_prod.add_item_in_cart()
+    page_prod.should_be_success_message_after_adding_in_cart()
 
+@pytest.mark.skip
+def test_guest_cant_see_success_message(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
+    page_prod = ProductPage(browser, link)
+    page_prod.open()
+    page_prod.should_be_success_message_after_adding_in_cart()
 
+@pytest.mark.skip
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
+    page_prod = ProductPage(browser, link)
+    page_prod.open()
+    page_prod.add_item_in_cart()
+    page_prod.success_message_should_disappear_after_adding_in_cart()

@@ -11,11 +11,16 @@ class ProductPage(BasePage):
         self.add_item_in_cart()
         self.wait_until_alert_is_present()
         
-
     def should_be_checked_in_cart(self):
         self.check_book_name_in_cart()
         self.check_book_price()
-        
+
+    def should_be_success_message_after_adding_in_cart(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented"
+
+    def success_message_should_disappear_after_adding_in_cart(self):
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), "Success message did not disappear"
+
     def add_item_in_cart(self):
         button_buy = self.browser.find_element(*ProductPageLocators.BUY_BUTTON)
         button_buy.click()

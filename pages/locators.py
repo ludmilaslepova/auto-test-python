@@ -14,3 +14,4 @@ class ProductPageLocators():
     BOOK_NAME_CHECK = (By.TAG_NAME, 'div.alertinner>strong')
     PRICE_CHECK = (By.TAG_NAME, 'div.alertinner>p>strong')
     PRICE = (By.TAG_NAME, 'div.col-sm-6.product_main>p.price_color')
+    SUCCESS_MESSAGE = (By.XPATH, '//div[@id="messages"]/div[1]/div[1]')
